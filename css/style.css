@@ -1,0 +1,57 @@
+/* Establishes color scheme throughout site. */
+:root {
+    --primary: rgb(124, 60, 153);
+    --secondary: rgb(107, 39, 39);
+    --tertiary:#fff;
+}
+
+/* Removes underline automatically applied to hyperlinks. */
+a {
+    text-decoration: none;
+}
+
+body {
+    background-color: #fff;
+    font-size: 1em;
+    line-height: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    height: 4em;
+    margin: auto;
+}
+
+.high-scores {
+    float: left;
+    margin: 2em;
+    color: var(--primary);
+    
+}
+
+.timer {
+    float: right;
+    margin: 2em;
+    color: var(--primary);
+}
+
+.quiz-content {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    letter-spacing: .1em;
+}
+
+.button {
+    color: var(--tertiary);
+    background-color: var(--primary);
+    display: inline-block;
+    font-size: 1.5em;
+    margin: 2em .5em;
+    padding: .5em; 
+    border-radius: .5em;
+}
+/* Mobile view. Ensures content remains clean and responsive.*/
+
+@media (max-width: 1024px) {
+}
