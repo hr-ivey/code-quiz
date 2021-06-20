@@ -18,21 +18,22 @@ body {
 }
 
 header {
-    height: 4em;
+    height: 5em;
     margin: auto;
 }
 
-.high-scores {
+.high-score {
     float: left;
-    margin: 2em;
+    margin: 1em 2em;
     color: var(--primary);
-    
+    font-size: 1.5em;
 }
 
 .timer {
     float: right;
-    margin: 2em;
+    margin: 1em 2em;
     color: var(--primary);
+    font-size: 1.5em;
 }
 
 .quiz-content {
@@ -42,7 +43,7 @@ header {
     letter-spacing: .1em;
 }
 
-.button {
+button {
     color: var(--tertiary);
     background-color: var(--primary);
     display: inline-block;
@@ -51,6 +52,7 @@ header {
     padding: .5em; 
     border-radius: .5em;
 }
+
 /* Mobile view. Ensures content remains clean and responsive.*/
 
 @media (max-width: 1024px) {
