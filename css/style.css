@@ -36,7 +36,7 @@ header {
     font-size: 1.5em;
 }
 
-.quiz-content {
+.main-content {
     width: 70%;
     margin: auto;
     text-align: center;
@@ -51,6 +51,24 @@ button {
     margin: 2em .5em;
     padding: .5em; 
     border-radius: .5em;
+}
+
+.question {
+    margin: .5em auto;
+    font-size: 2em;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.choice {
+    color: var(--tertiary);
+    background-color: var(--primary);
+    margin: .5em 1em;
+    padding: .5em;
+}
+
+.choice:hover {
+    opacity: 50%;
 }
 
 /* Mobile view. Ensures content remains clean and responsive.*/

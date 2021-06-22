@@ -1,81 +1,104 @@
-// Variable element assignments.
+// Element assignments.
 var start = document.querySelector(".start");
+var ready = document.querySelector(".ready");
+var quizContent = document.querySelector(".quiz-content");
 var hsPageNumber = document.querySelector(".hs-page-number");
 var timerPageNumber = document.querySelector(".timer-page-number");
+var questionPage = document.querySelector("#question");
+var choicesPage = document.querySelector("#choices");
 
-// Other variable assignments.
+// Storing questions + answers.
+var questionList = [
+    {
+        question: "This is question one?",
+        choice1: "Choice one",
+        choice2: "Choice two",
+        choice3: "Choice three",
+        correct: 1
+    },
+    {
+        question: "When you store a function inside of an object, what is this called?",
+        choice1: "Object method",
+        choice2: "Object grouping",
+        choice3: "Object function",
+        correct: 2
+    },
+    {
+        question: "This is question three?",
+        choice1: "Choice one",
+        choice2: "Choice two",
+        choice3: "Choice three",
+        correct: 3
+    },
+    {
+        question: "How do you find the number of items present in an array?",
+        choice1: ".howmany",
+        choice2: ".length",
+        choice3: ".number",
+        correct: 3
+    }
+];
+
+// Other variables.
 var timer;
 var timerNumber;
-var hsNumber = 0;
-
-// Calls in current high score.
-function currentHS (){
-    loadHS ();
-}
+var score = 0;
 
 // Adds event listener to start button.
 start.addEventListener("click", startGame);
 
-// Starts the game.
-function startGame (){
-  console.log ("The game has successfully started upon click.");
-  timerNumber = 15;
-// Hides start button when the game starts so it cannot be clicked again.
-  start.style.display = "none";
-  startTimer()
-};
 
 // Timer function.
 function startTimer() {
     timer = setInterval(function() {
         timerNumber--;
         timerPageNumber.textContent = timerNumber;
-        if (timerNumber === 0) {
+        if (timerNumber <= 0) {
+            console.log ("The game has officially ended.");
             clearInterval(timer)
             start.style.display = "";
-            console.log ("The game has ended");
+            quizcontent.style.display= "none";
             return
         }
     }, 1000);
 }
 
-// // High score function.
-// function trackHighScore() {
-//         hsNumber--;
-//         hsPageNumber.textContent = hsNumber;
-//         }
-//     };
-// }
+// Display question + choices function.
+function displayQuestions() {
+    var x = questionList[0];
+    questionPage.textContent = x.question;
+    console.log(x);
+    choice1.textContent = x.choice1;
+    choice2.textContent = x.choice2;
+    choice3.textContent = x.choice3;
+};
 
-// Each question is its own function.
-// function question1 {
-// };
+// Check answer function.
+function checkAnswer(answer){
+    if (answer == questionList[0].correct){
+        console.log("Correct")
+        score++;
+    } else {
+        console.log("Incorrect")
+        timerNumber-= 5;
+    }
+}
 
-// function question2 {
-// };
+// Starts the game.
+function startGame() {
+    console.log ("The game has successfully started upon click.");
+    timerNumber = 15;
+// Hides button and "Ready?" text when game is started.
+    start.style.display = "none";
+    quizcontent.style.display = "";
+    startTimer()
+    console.log ("The start button and text has been hidden.")
+//   Shows questions and choices.
+    displayQuestions()
 
-// function question3 {
-// };
+};
 
-// function question4 {
-// };
 
-// function question5 {
-// };
-
-// function question6 {
-// };
-
-// function question7 {
-// };
-
-// function question8 {
-// };
-
-// function question9 {
-// };
-
-// function question10 {
-// };
-
-// Start over button
+// Establishes high score and saves to local storage.
+// var highScore = whatever points are at end
+// localStorage.setItem("highScore", JSON.stringify(highScore));

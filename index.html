@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,14 +11,14 @@
 <body>
     <header>
 <!-- High scores link. -->
-    <div class="high-score">HIGH SCORE: <span class="hs-page-number">0</span></div>
+    <div class="high-score">Current High Score</div>
 
 <!-- Timer. -->
     <div class="timer">TIMER: <span class="timer-page-number">15</span> seconds</div>
 </header>
 
 <!-- Main content area. -->
-    <main class="quiz-content">
+    <main class="main-content">
         <h1>Code Quiz Challenge</h1>
         <br>
         <h2>✨ How well do you know the Javascript basics? ✨</h2>
@@ -27,11 +26,18 @@
         <br>
         <p><b>Do you know the basics of Javascript?</b> Take this timed quiz to find out!
         <br>
-        The faster you are able to answer, the higher your score, but remember, for every incorrect answer, ten seconds will be deducted from your total time.</p>
+        The faster you are able to answer, the higher your score, but remember, for every incorrect answer, five seconds will be deducted from your total time.</p>
         <br>
-        <b>Ready?</b>
+        <section id="quizcontent">
+        <div class="ready"><b>Ready?</b></div>
         <br>
-        <!-- Take quiz button. -->
+        <br>
+             <div class="question" id="question"></div>
+            <div class="choice" id="choice1" onclick="checkAnswer('1')"></div>
+            <div class="choice" id="choice2" onclick="checkAnswer('2')"></div>
+            <div class="choice" id="choice3" onclick="checkAnswer('3')"></div>
+        </section>
+<!-- Take quiz button. -->
         <button class="start">Let's Go!</button>
     </main>   
     <footer>
