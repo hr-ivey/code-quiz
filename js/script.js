@@ -80,6 +80,7 @@ function displayQuestions() {
     choice1.textContent = x.choice1;
     choice2.textContent = x.choice2;
     choice3.textContent = x.choice3;
+    return
 };
 
 // Check answer function.
@@ -95,12 +96,16 @@ function checkAnswer(answer){
         currentQuestion++;
         displayQuestions();
     }
+    return
 };
 
 // Starts the game.
 function startGame() {
+    score = 0;
+    currentQuestion= 0;
+    timer = 0;
     console.log ("The game has successfully started upon click.");
-    timerNumber = 15;
+    timerNumber = 20;
 // Hides start button and "Ready?" text when game starts.
     start.style.display = "none";
     quizContent.style.display = "block";
@@ -111,6 +116,7 @@ function startGame() {
     console.log ("The start button and text has been hidden.")
 //   Shows questions and choices.
     displayQuestions()
+    return
 };
 
 // Establishes high score and saves to local storage.
