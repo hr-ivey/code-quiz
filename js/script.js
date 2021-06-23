@@ -2,6 +2,8 @@
 var start = document.querySelector(".start");
 var ready = document.querySelector(".ready");
 var choice = document.querySelector(".choice");
+var result = document.querySelector(".result");
+var scoretext = document.querySelector(".scoretext");
 var quizContent = document.querySelector(".quizcontent");
 var hsPageNumber = document.querySelector(".hs-page-number");
 var timerPageNumber = document.querySelector(".timer-page-number");
@@ -62,8 +64,10 @@ function startTimer() {
             clearInterval(timer)
             start.style.display = "";
             quizContent.style.display="none"
-            ready.style.display = "none";
             console.log("Score: " + score)
+            score =scoretext.textContent = score;
+            result.style.display = "block";
+            ready.style.display = "";
             return
         }
     }, 1000);
@@ -101,6 +105,7 @@ function startGame() {
     start.style.display = "none";
     quizContent.style.display = "block";
     ready.style.display = "none";
+    result.style.display = "none";
     
     startTimer()
     console.log ("The start button and text has been hidden.")

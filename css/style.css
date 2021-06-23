@@ -76,6 +76,13 @@ button {
     margin-top: -3em;
 }
 
+.result {
+    display: none;
+    margin: 3em auto;
+    font-size: 2em;
+    font-weight: 900;
+}
+
 /* Mobile view. Ensures content remains clean and responsive.*/
 
 @media (max-width: 1024px) {
