@@ -1,19 +1,22 @@
 // Element assignments.
 var start = document.querySelector(".start");
 var ready = document.querySelector(".ready");
-var quizContent = document.querySelector(".quiz-content");
+var choice = document.querySelector(".choice");
+var quizContent = document.querySelector(".quizcontent");
 var hsPageNumber = document.querySelector(".hs-page-number");
 var timerPageNumber = document.querySelector(".timer-page-number");
 var questionPage = document.querySelector("#question");
 var choicesPage = document.querySelector("#choices");
 
+
+
 // Storing questions + answers.
 var questionList = [
     {
-        question: "This is question one?",
-        choice1: "Choice one",
-        choice2: "Choice two",
-        choice3: "Choice three",
+        question: "What are the three basic types of data?",
+        choice1: "numbers, strings, booleans",
+        choice2: "letters, numbers, equations",
+        choice3: "input, text, numbers",
         correct: 1
     },
     {
@@ -21,13 +24,13 @@ var questionList = [
         choice1: "Object method",
         choice2: "Object grouping",
         choice3: "Object function",
-        correct: 2
+        correct: 1
     },
     {
-        question: "This is question three?",
-        choice1: "Choice one",
-        choice2: "Choice two",
-        choice3: "Choice three",
+        question: "Where within the HTML must the .js file be called? ",
+        choice1: "In <head>",
+        choice2: "In <footer>",
+        choice3: "Before </body>",
         correct: 3
     },
     {
@@ -35,7 +38,7 @@ var questionList = [
         choice1: ".howmany",
         choice2: ".length",
         choice3: ".number",
-        correct: 3
+        correct: 2
     }
 ];
 
@@ -43,10 +46,11 @@ var questionList = [
 var timer;
 var timerNumber;
 var score = 0;
+var currentQuestion = 0;
+var lastQuestion = questionList.length - 1;
 
 // Adds event listener to start button.
 start.addEventListener("click", startGame);
-
 
 // Timer function.
 function startTimer() {
@@ -57,7 +61,9 @@ function startTimer() {
             console.log ("The game has officially ended.");
             clearInterval(timer)
             start.style.display = "";
-            quizcontent.style.display= "none";
+            quizContent.style.display="none"
+            ready.style.display = "none";
+            console.log("Score: " + score)
             return
         }
     }, 1000);
@@ -65,9 +71,8 @@ function startTimer() {
 
 // Display question + choices function.
 function displayQuestions() {
-    var x = questionList[0];
+    var x = questionList[currentQuestion];
     questionPage.textContent = x.question;
-    console.log(x);
     choice1.textContent = x.choice1;
     choice2.textContent = x.choice2;
     choice3.textContent = x.choice3;
@@ -75,30 +80,33 @@ function displayQuestions() {
 
 // Check answer function.
 function checkAnswer(answer){
-    if (answer == questionList[0].correct){
+    if (answer == questionList[currentQuestion].correct){
         console.log("Correct")
         score++;
     } else {
-        console.log("Incorrect")
+        console.log("Incorrect 🤡")
         timerNumber-= 5;
     }
-}
+    if(currentQuestion < lastQuestion){
+        currentQuestion++;
+        displayQuestions();
+    }
+};
 
 // Starts the game.
 function startGame() {
     console.log ("The game has successfully started upon click.");
     timerNumber = 15;
-// Hides button and "Ready?" text when game is started.
+// Hides start button and "Ready?" text when game starts.
     start.style.display = "none";
-    quizcontent.style.display = "";
+    quizContent.style.display = "block";
+    ready.style.display = "none";
+    
     startTimer()
     console.log ("The start button and text has been hidden.")
 //   Shows questions and choices.
     displayQuestions()
-
 };
 
-
 // Establishes high score and saves to local storage.
-// var highScore = whatever points are at end
-// localStorage.setItem("highScore", JSON.stringify(highScore));
+localStorage.setItem("score", JSON.stringify(score));

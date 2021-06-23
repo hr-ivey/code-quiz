@@ -71,6 +71,11 @@ button {
     opacity: 50%;
 }
 
+.quizcontent {
+    display:none;
+    margin-top: -3em;
+}
+
 /* Mobile view. Ensures content remains clean and responsive.*/
 
 @media (max-width: 1024px) {
