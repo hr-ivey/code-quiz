@@ -10,9 +10,6 @@ Deployed: https://hr-ivey.github.io/code-quiz/
 ## Usage
 ![Application screenshot](/screenshot.png)
 
-## Credits
-Pure CSS Animated Background - https://codepen.io/mohaiman
-
 ## Questions
 🌲 [Email me](mailto:haleyrivey@gmail.com)
 
